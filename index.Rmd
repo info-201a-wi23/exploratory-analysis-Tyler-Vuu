@@ -3,6 +3,14 @@ title: "Exploratory Analysis"
 output: html_document
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+
+# source all R files
+source('summary_information.r')
+source('chart2.R')
+```
+
 ## Project title
 
 Give your project a concise, interesting title that summarizes the entirety of your project
@@ -31,6 +39,8 @@ Briefly introduce your project.  Include 3-5 research questions. What motivates 
 ### Related Work  
 
 Describe your topic and related work in this space. You must include 3 citations to related work (URLs to similar work, high quality articles from the popular press, research papers, etc. ) Please use a standard citation style of your choice. (at least 200 words)
+
+https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7588920/
 
 ### The Dataset
 
@@ -68,14 +78,22 @@ Describe why you chose this chart and what information it reveals
 
 Here's an example of how to run an R script inside an RMarkdown file:
 
-``````{r, echo = FALSE, code = readLines("chart1_example.R")}
-```
+
 
 ### Chart 2
 
-Include a chart
+```{r chart2,warning=FALSE}
+nutrition.plot
+```
 
-Describe why you chose this chart and what information it reveals
+Household income and nutritional intake are closely related. Different foods have different demand and price elasticity. We suspect that when household income is low, people pursue basic energy intake. When people have higher incomes, they make different choices about nutrition to balance their diet. From the plot, we see that the x-axis is family annul income, but to better explore the linear relation between the income and three common nutrition, giving each income level a numeric value is better to see the trend. Below is sample of the meaning of numeric represents of family annual income with increment of $4,999. 
+
+|category|meaning|
+|:------:|:-----:|
+|1| \$0 to $4,999|
+|2| \$5,000 to $9,999|
+
+And, we choose three most common nutrition: Carbohydrate, protein, and fat measured in gram and plotted as y-axis. We see that as income increases, all of them decrease, but the negative trend between carb and income is the most significant. We find that carbohydrate can be viewed as necessity at low income levels, people at which cannot afford better and diverse food choices. However, at higher income level, a higher negative elasticity appears between income and carbohydrate(*(Yongjian, 2020)*)[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7588920/]. They have more choices and they may choose different nutrition intake to balance their food rather than just solve the probelm of hunger. 
 
 ### Chart 3
 
