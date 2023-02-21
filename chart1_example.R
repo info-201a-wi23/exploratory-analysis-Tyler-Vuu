@@ -1,7 +1,10 @@
-x_values <- seq(1, 3)
-y_values <- seq(1,3)
-
 library(ggplot2)
-ggplot() +
-  geom_point(aes(x=x_values, y = y_values))
+nutrition_data = read.csv("")
+
+BMI_data <- nutrition_data %>%
+  filter(ParkName %in% c("BMI", "Income Level")) 
+
+ggplot(BMI_data) +
+  geom_point(aes(x=x_values, y = y_values)) +
+  labs(title = "Arches Overtakes the Badlands in the 21st Century", x = "Income Level", y = "BMI")
 
