@@ -96,11 +96,19 @@ This table was sorted by the family size of participants (1 - 7), finding the av
 
 ### Chart 1
 
-Include a chart
+|category|meaning|
+|:------:|:-----:|
+|1| \$0 to $4,999|
+|2| \$5,000 to $9,999|
 
-Describe why you chose this chart and what information it reveals
 
-Here's an example of how to run an R script inside an RMarkdown file:
+One good benchmark of a person’s health is their BMI which is a calculated value based of a persons weight in combination with their height. With the obesity crisis in America, we wanted to see the correlation between income level and average BMI to see if there is a connection between the two.
+
+```{r chart1,warning=FALSE}
+BMI.plot
+```
+
+Looking at the graph, we can see that there is a clear negative correlation that shows that high BMI correlates to lower income levels. We can even see this trend with children as well though not as strong as the one with adults. Using this data we can assume that people within the lesser income bracket tend to be unhealthier with their weight with a potential cause being the food available to them. Foods like fast food may be unhealthy but cheap which may explain the higher BMI and we see this trend continue in our other graphs
 
 
 

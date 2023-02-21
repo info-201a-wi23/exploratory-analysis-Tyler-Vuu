@@ -28,7 +28,7 @@ ggplot(participant_data) +
   labs(title = "BMI to Income Level", x = "Income Level", y = "BMI")
 
 #Line plot of averaged BMI's and income levels
-ggplot(melted.df,mapping = aes(x = fam_income, y = value, color = variable)) +
+BMI.plot <- ggplot(melted.df,mapping = aes(x = fam_income, y = value, color = variable)) +
   scale_color_brewer(palette = "Set1") +
   geom_smooth(method = "lm", se = FALSE) +
   labs(x = "Family Income Level",
