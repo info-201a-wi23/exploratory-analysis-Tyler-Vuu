@@ -4,71 +4,95 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
+library(knitr)
 knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 
 # source all R files
 source('summary_information.r')
 source('chart2.R')
+source('agg_table.R')
 ```
 
-## Project title
+## The Wealth-Wellness Connection
 
-Give your project a concise, interesting title that summarizes the entirety of your project
+### Authors 
 
-### Authors
-
-Names of your team members
+Tyler Vuu tvuu@uw.edu<br />
+Olivia Qi qq2002qq@uw.edu<br />
+Carson Sharpe carson02@uw.edu<br />
+Bao Ngan Doan bndoan2@uw.edu 
 
 ### Date
 
-Winter 2022
+Winter 2023
 
-### Abstract
+## Abstract
 
-No more than three sentences that summarize your project. Focus on the very most important aspects. For example: (1) "Our main question is .... This question is important because .... To address the question, we will ...." (2) "We are concerned with ..., because .... To address this concern, we plan to ...." (3) "Consider that .... This is important because .... Accordingly, we plan to ...."
+For our project, our main question focuses on the differing factors on the nutritional intake of people within the United States and to address this question we will be looking at different factors and comparing them to nutrients levels being ingested. We are concerned with this because of the rampant obesity crisis in America and through this research, we will hopefully be able to see whether there is a correlation with income level. Through our research and cross examination, we will hopefully be able to target and come up with more effective strategies to combat obesity.
 
-### Keywords
+## Keywords
 
-3-5 keywords that summarize your project.
-(e.g., "Keywords: human physiology; bicycle exercise; Gen Z; times-series data")
+Health, income, nutrition, obesity, age
 
-### Introduction  
+## Proposal
 
-Briefly introduce your project.  Include 3-5 research questions. What motivates the questions? Why are they important? (at least 200 words)
+1. Introduction  
 
-### Related Work  
+We believe that in the USA, there is a major nutrition crisis. Though America is often considered to be one of the wealthiest countries in the world, many people suffer from diet-related health problems such as obesity, heart disease, and type 2 diabetes. Our project aims to analyze the link between nutrition compared to other aspects of a person's life. We will examine the data through the lens of three key questions. 
 
-Describe your topic and related work in this space. You must include 3 citations to related work (URLs to similar work, high quality articles from the popular press, research papers, etc. ) Please use a standard citation style of your choice. (at least 200 words)
+(Q1)The first is focused on how income levels affect overall nutritional health for people within the United States. This is important because there is a prevalent wealth gap in the USA, and see how that pertains to nutrition. 
 
-https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7588920/
+(Q2) Our second question is, looking at how different genders impact income or nutrition levels. This is important because gender discrimination is evident across industries and has been proven to influence women’s income. 
 
-### The Dataset
+(Q3) Additionally, it will be important to view what other lifestyle-related factors, such as physical activity or smoking frequency correlate to health and income. 
 
-Where did you find the data? Please include a link to the data source  
-Who collected the data?  
-How was the data collected or generated?  
-Why was the data collected?  
-How many observations (rows) are in your data?  
-How many features (columns) are in the data?  
-What, if any, ethical questions or questions of power do you need to consider when working with this data?  
-What are possible limitations or problems with this data?   (at least 200 words)
+Because there are a number of confounding variables related to health and nutrition, it is important to separate the impact of income from other factors such as age, genetics, and lifestyle. By answering these three questions, we will better understand the connection between income, gender, lifestyle, and health. This can help inform public health policies focused on improving the nutrition and health of people in the United States.
 
-### Implications
+2. Related Work  
 
-Assuming you answer your research questions, briefly describe the expected or possible implications for technologists, designers, and policymakers. (at least 150 words)
+Body Mass Index (BMI) is used as a screening method for weight categories and is correlated with direct measures of body fat. BMI and body fat strongly correlates but two individuals with the same BMI could still differ in body fatness since it also includes their muscle and bone scores. BMI is not used to diagnose or determine the health of an individual but it can be used to help determine if it is a health risk. Another contributing factor is nutrition level and socio-economic status. Studies like the Study of Household Purchasing Patterns, Eating, and Recreation [SHoPPER] have shown associations of poorer quality diets with low household income. Households with a lower socio-economic status are more likely to buy sugary junk food and fewer fruits and vegetables. The quality of foods purchased is strongly associated with an individual’s income, especially if higher quality foods are priced higher than cheap low quality foods. Consistent with existing studies, a study titled “Effect of Socioeconomic Status on Physical and Psychological Health: Lifestyle as a Mediator” revealed that SES had a significant impact on physical health – mainly reflected in three aspects of an individual’s life: occupation, income, and education. It is found that people with higher professional status and income engage in less manual labor, have fewer occasions of being exposed to health rishs, are usually associated with better housing conditions, nutritional status, medical services, etc. These studies were found upon surveys along with a data collection process by staff-trained participants, and can give insight on the metrics in our data as it is used with R to answer our research questions. 
 
-### Limitations & Challenges
-What challenges or limitations might you need to address with your project idea more broadly? Briefly discuss. (at least 150 words)
+References
+
+- Centers for Disease Control and Prevention. (2022, June 3). About adult BMI. Centers for Disease Control and Prevention. Retrieved February 3, 2023, from [https://www.cdc.gov/healthyweight/assessing/bmi/adult_bmi/index.html] 
+
+- French, S. A., Tangney, C. C., Crane, M. M., Wang, Y., & Appelhans, B. M. (2019, February 26). Nutrition quality of food purchases varies by household income: The shopper study - BMC public health. BioMed Central. Retrieved February 3, 2023, from [https://bmcpublichealth.biomedcentral.com/articles/10.1186/s12889-019-6546-2] 
+
+- Wang, J., & Geng, L. (2019, January 20). Effects of socioeconomic status on physical and psychological health: Lifestyle as a mediator. International journal of environmental research and public health. Retrieved February 3, 2023, from [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6352250/?fbclid=IwAR2sSqY0TRlOGb-ng_pAFKdmoiod1_isf3mh_axSabycXc8PJNDDjt_T6ZQ#B29-ijerph-16-00281]
+
+3. The Dataset
+
+The dataset(8862 observations(rows) and 49 features (columns)) is from Global Dietary Database’s  National Health and Nutrition Examination Survey (NHANES)(https://www.globaldietarydatabase.org/management/microdata-surveys/717). Data were collected by the Centers for Disease Control and Prevention’s (CDC) National Center for Health Statistics (NCHS). NHANES data were not obtained using a simple random sample. The sample size was 10175 and it used a complex, multistage, probability sampling design to select participants. Data  was collected by interviews at home through administered questionnaires and part of them were followed by a standardized health examination in specially equipped mobile examination centers (MECs). <br />
+It collected health examination data from the national scale, which was composed of resident and civilian noninstitutionalized U.S. population.  It excludes all potential biased persons, such as people under supervised care or custody in institutional settings, all active-duty military personnel, overseas family members, and any other U.S. citizens residing outside of the 50 states and District of Columbia. <br />
+For better provide food supply and control for disease to improve nutrition level and public health, they divided the population according to sex, race and Hispanic origin, and age subdomains of the U.S. population to produce a broad range of descriptive health and nutrition statistics. These data can then be used to measure and monitor the health and nutritional status of the civilian noninstitutionalized population. These data can be further used to monitor trends in disease prevalence, awareness, treatment and control; to analyze the relationship among diet, nutrition, and health; to find potential public health issues; and to provide a baseline characteristics to administration and policy development.<br />
+An ethical problem that might evolve is the empathy for the disadvantaged. Since the survey and the dataset are used to measure health and nutrition level of different groups, which could be different ages, races, and regions. Policy or social welfare for groups are derived from the report. Interviewed participants may reponse lower health or nutrition situations for more welfare.<br />
+Our primary dietary assessment method was 24-hour recall. This may lead to response biases or incompletions. Participants know they were selected for observation, so they have potential to eat differently than in general life, and some of them may not be able to clearly memorize what they consumed each day. By looking through the data set, we do find some incomplete responses and unavailable information that may cause us to do more when using the data set.
+
+4. Implications
+
+With the answering of our research question, we will be able to see at which income levels unhealthy diets occur the most and hopefully make them healthier through legislation or school programs. We will also be able to see which nutrients people are lacking or need to consume more of. Policymakers can especially use this data to know where to implement healthy eating programs. Educational policy makers especially could use this data to prioritize which schools need redesigns of their school lunch programs.This information would also benefit the general public as well as they will be able to visualize where their nutritional gaps are. General nutritionists could also use this data to give recommendations to the public on different foods to eat to address these nutritional gaps. Depending on the unhealthiest income bracket, we can also imply where the unhealthiest foods lie price wise and if economically disadvantaged people are also nutritionally disadvantaged as well.
+
+5. Limitations & Challenges
+
+As mentioned previously, the validity of this data could be faulty due to the nature of self-reported data, especially in sensitive areas such as personal health. As we aim to answer the question of, what has the greatest impact on nutrition intake and what impact it has on overall health, it may be challenging to determine which factors indicate an individual's health level. There are many factors not included in the data related to a person's lifestyle that may indicate their general health. There may also be some challenges associated with the interpretation of the data since some of the variables could contradict each other, and challenge the validity of our findings. Overall, the challenges are going to be related to the methods we use to analyze and conclude the answer to our question of what has the greatest impact on nutrition intake and what impact it has on overall health.
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+This dataset "National Health and Nutrition Examination Survey 2013-2014" had `r num_female` female and `r num_male` male participants. Our analysis found the average BMI score to be `r avg_bmi`, with a minimum of `r min_bmi` and a maximum of `r max_bmi`. We also found the average family income to be `r avg_fam_income`, which according to the codebook a value of 7 is $35,000 to $44,999, and 8 is $45,000 to $54,9999. With diet also being a category and research point, we found `r num_spec_diet` participants out of `r num_participants` total had some sort of special diet, whether that be vegetarian, vegan, weight loss, weight gain, or any other.
 
 ### Table
 
-Include a table of aggregate information
+```{r agg_table, message=FALSE, echo=FALSE}
+table_caption <- paste("Data Averages grouped by Family Size")
+kable(fam_df,
+      col.names = c('Family Size',
+                    'Average Family Income',
+                    'Average BMI',
+                    'Average BMI Classification'),
+      caption = table_caption)
+```
 
-Describe why you included the table and what information it reveals
+This table was sorted by the family size of participants (1 - 7), finding the average family income, BMI, and BMI classification within each group. Although there are differences between the averages of the other categories, the BMI classifications all come out roughly as 3, which is the overweight value.
 
 ### Chart 1
 
