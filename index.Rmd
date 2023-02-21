@@ -5,11 +5,12 @@ output: html_document
 
 ```{r setup, include=FALSE}
 library(knitr)
-knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 
 # source all R files
 source('summary_information.r')
+source('chart1.R')
 source('chart2.R')
+source('chart3.R')
 source('agg_table.R')
 ```
 
@@ -114,21 +115,30 @@ Looking at the graph, we can see that there is a clear negative correlation that
 
 ### Chart 2
 
-```{r chart2,warning=FALSE}
-nutrition.plot
+```{r chart2,warning=FALSE, }
+plot1
+plot2
 ```
 
-Household income and nutritional intake are closely related. Different foods have different demand and price elasticity. We suspect that when household income is low, people pursue basic energy intake. When people have higher incomes, they make different choices about nutrition to balance their diet. From the plot, we see that the x-axis is family annul income, but to better explore the linear relation between the income and three common nutrition, giving each income level a numeric value is better to see the trend. Below is sample of the meaning of numeric represents of family annual income with increment of $4,999. 
+Before plotting, we propose a guess that household income and nutritional intake are closely related. Different foods have different demand and price elasticity. We suspect that when household income is low, people pursue basic carb intake. When people have higher incomes, they make different choices about nutrition to balance their diet. 
 
-|category|meaning|
-|:------:|:-----:|
-|1| \$0 to $4,999|
-|2| \$5,000 to $9,999|
+We divide the family annual income into two group, lower and higher income group. Income smaller than 5 means annual income smaller than $25,000, and belongs to the lower income group. And income greater or equal to 5 belongs to the higher income group.
 
-And, we choose three most common nutrition: Carbohydrate, protein, and fat measured in gram and plotted as y-axis. We see that as income increases, all of them decrease, but the negative trend between carb and income is the most significant. We find that carbohydrate can be viewed as necessity at low income levels, people at which cannot afford better and diverse food choices. However, at higher income level, a higher negative elasticity appears between income and carbohydrate(*(Yongjian, 2020)*)[https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7588920/]. They have more choices and they may choose different nutrition intake to balance their food rather than just solve the probelm of hunger. 
+We use two pie charts to explore the nutrition proportion of each income group. We found that the proportion of three nutrition does not change very much. Even though income increases, carb still takes the biggest proportion. And the proportion of fat and protein also do not vary significantly. We may conclude that carb, fat and protein are necessities for household no matter how much they earn.
 
 ### Chart 3
 
-Include a chart
+```{r chart3,warning=FALSE, }
+bar_plot
+```
 
-Describe why you chose this chart and what information it reveals
+This chart is a bar graph of the correlation between types of meals and household income. The reason why we chose to analyze this specific data, in addition to analyzing the correlation between income in nutrition, is because nutrition alone does not tell the full story of an individual's health. The "types of meals" variable in our data has options ranging from "Breakfast" to "Snack after dinner". The research question this data answer is "what are the eating habits of people with different income levels?". We chose to display this data as a bar graph because it offers insight into the number of people who are making these eating choices at different income levels. For example, we can see that the majority of people at a level 6 income level tend to snack after lunch.
+
+|category|meaning| 
+|:------:|:-----:|
+|1| Before breakfast |
+|3| Snack between breakfast and lunch|
+
+
+
+

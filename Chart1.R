@@ -2,8 +2,9 @@
 #Loading necessary libraries and datasets
 library(dplyr)
 library(ggplot2)
+library(reshape2)
 
-participant_data = read.csv("https://www.globaldietarydatabase.org/system/files/microdata/data-upload/2020-12/USA_NHANES_2013-2014_ParticipantData.csv", stringsAsFactors = FALSE)
+participant_data = read.csv("USA_NHANES_2013-2014_ParticipantData.csv", stringsAsFactors = F)
 
 #Loading datasets and corresponding ID's
 BMI_data <- participant_data %>%
