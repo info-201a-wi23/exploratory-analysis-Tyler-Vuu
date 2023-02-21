@@ -1,35 +1,8 @@
-#chart 2 summary
-# graph summary
-# I want to explore the relationship between family income and nutritions intake
-
 library(dplyr)
 
 # data
 Participant.df <- read.csv("USA_NHANES_2013-2014_ParticipantData.csv", stringsAsFactors = F)
 Diet.df <- read.csv("USA_NHANES_2013-2014_DietData_part2.csv", stringsAsFactors = F)
-
-# 1. Select the columns that includes important nutritions
-Nutrition.df <- Diet.df %>%
-  select(id,totalpro, carb, totalfat)
-
-income.df <- Participant.df %>%
-  select(id, fam_income)
-
-# 2. Calculate the average nutrition intake according to each id
-Nutrition.avg.df <- Nutrition.df %>%
-  group_by(id) %>%
-  summarize(avg_pro = mean(totalpro,na.rm = T),
-            avg_carb = mean(carb,na.rm = T),
-            avg_fat = mean(totalfat, na.rm = T))
-
-
-# join the data set 
-income.nutrition <- left_join(Nutrition.avg.df, income.df, by = "id") 
-
-# coefficients
-ols.summary <- summary(lm(income.nutrition$avg_carb ~ income.nutrition$fam_income))
-income.carb.relation <- ols.summary$coefficients[2]
-
 
 # how many participants are in the study (unique IDs)
 num_participants <- length(unique(Participant.df$id))
@@ -52,3 +25,14 @@ num_female <- nrow(Participant.df %>%
                      filter(sex == '2'))
 num_male <- nrow(Participant.df %>% 
                    filter(sex == '1'))
+
+# create a list
+summary_info <- list()
+summary_info$num_female <- round(num_female, digits = 2)
+summary_info$num_male <- round(num_male, digits = 2)
+summary_info$avg_bmi <- round(avg_bmi, digits = 2)
+summary_info$min_bmi <- round(min_bmi, digits = 2)
+summary_info$max_bmi <- round(max_bmi, digits = 2)
+summary_info$num_spec_diet <- num_spec_diet
+summary_info$avg_fam_income <- round(avg_fam_income, digits = 2)
+summary_info$num_participants <- num_participants

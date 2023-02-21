@@ -1,6 +1,5 @@
 library(dplyr)
 library(ggplot2)
-library("scales")
 
 # data
 Participant.df <- read.csv("USA_NHANES_2013-2014_ParticipantData.csv", stringsAsFactors = F)
@@ -11,3 +10,5 @@ fam_df <- Participant.df %>%
               select(fam_size, fam_income, bmi_adults, bmi_cat) %>% 
               group_by(fam_size) %>% 
               summarize(across(everything(), list(mean = mean), na.rm = TRUE))
+
+fam_df <- round(fam_df, digits = 2)
