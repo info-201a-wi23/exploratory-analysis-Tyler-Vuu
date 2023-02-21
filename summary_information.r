@@ -31,5 +31,24 @@ ols.summary <- summary(lm(income.nutrition$avg_carb ~ income.nutrition$fam_incom
 income.carb.relation <- ols.summary$coefficients[2]
 
 
+# how many participants are in the study (unique IDs)
+num_participants <- length(unique(Participant.df$id))
 
+# average, min, max bmi
+avg_bmi <- mean(Participant.df$bmi_adults, na.rm = TRUE)
+min_bmi <- min(Participant.df$bmi_adults, na.rm = TRUE)
+max_bmi <- max(Participant.df$bmi_adults, na.rm = TRUE)
 
+# average fam income
+avg_fam_income <- mean(Participant.df$fam_income, na.rm = TRUE)
+
+# how many have some other special diet
+special_diet <- Participant.df %>% 
+                filter(special_diet != '0')
+num_spec_diet <- nrow(special_diet)
+
+# female(2) vs male(1) ratio
+num_female <- nrow(Participant.df %>% 
+                     filter(sex == '2'))
+num_male <- nrow(Participant.df %>% 
+                   filter(sex == '1'))
