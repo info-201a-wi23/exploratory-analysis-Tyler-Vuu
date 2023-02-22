@@ -44,7 +44,8 @@ plot1 <- ggplot(lower.income, aes(x = "", y = prop, fill = variable)) +
   geom_text(aes(label = ""), color = "white")+
   scale_fill_manual(values = mycols) +
   theme_void() +
-  labs(title = "lower income group")
+  labs(title = "lower income group",
+       fill = "nutrition type")
 
 # For higher income 
 higher.income <- income.nutrition %>%
@@ -64,4 +65,6 @@ plot2 <- ggplot(higher.income, aes(x = "", y = prop, fill = variable)) +
   geom_text(aes(label = ""), color = "white")+
   scale_fill_manual(values = mycols) +
   theme_void() +
-  labs(title = "higher income group")
+  labs(title = "higher income group",
+       fill = "nutrition type")
+
