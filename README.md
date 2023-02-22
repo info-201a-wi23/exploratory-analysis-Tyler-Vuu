@@ -27,7 +27,7 @@ In addition, your report must include: 
 
 You will keep your code organized in multiple different files. This will help keep your project more modular and clear. You will create six different files for this project:
 
-  - An index.Rmd file that renders your report  
+  - An  index.Rmd file that renders your report  
   - An .R file that calculates summary information to be included in your report  
   - An .R file that creates a table of summary information to be included in your report  
   - An .R file that creates your first chart  
